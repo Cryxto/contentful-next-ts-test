@@ -29,7 +29,7 @@ export function ContentfulProvider({
   serverData: InferGetServerSidePropsType<typeof getServerSideProps>;
 }) {
   const [data, setData] = useState<any[]>([]);
-  console.log(serverData);
+  // console.log(serverData);
   
   useEffect(() => {
     const storedData = localStorage.getItem("contentfulData");
@@ -39,8 +39,11 @@ export function ContentfulProvider({
   }, []);
 
   const refreshData = async () => {
-    const newData = await serverData;
-    localStorage.setItem("contentfulData", JSON.stringify(newData));
+    const localData = localStorage.getItem("contentfulData");
+    if (!localData) {
+      const newData = await serverData;
+      localStorage.setItem("contentfulData", JSON.stringify(newData));
+    }
   };
 
   useEffect(() => {

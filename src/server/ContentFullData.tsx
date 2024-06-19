@@ -1,5 +1,5 @@
 import { getAllData } from "@/utils/contentful-utils";
-import { GetServerSideProps } from "next";
+// import { GetServerSideProps } from "next";
 import { ContentfulProvider } from "@/context/ContentfulContext";
 import { ReactNode } from "react";
 
@@ -16,6 +16,8 @@ import { ReactNode } from "react";
 
 export default function ContentFulData({children}:{ children:ReactNode}) {
   const data = getAllData()
+  // console.log(data);
+  
   return (<>
     <ContentfulProvider serverData={data}>
       {children}
