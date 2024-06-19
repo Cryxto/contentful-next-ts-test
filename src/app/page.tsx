@@ -18,7 +18,8 @@ export default function Page() {
       <h1>Full Width: {fullWidth}</h1>
       <div>
       {data.map(item => (
-        <div key={item.sys.id}>{item.fields.title}</div>
+        <div key={item.sys.id}>{JSON.stringify(item.fields)}</div>
+        // <div key={item.sys.id}>{item.fields.title}</div>
       ))}
     </div>
     </section>
