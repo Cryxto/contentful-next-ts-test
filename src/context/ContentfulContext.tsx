@@ -30,7 +30,7 @@ export function ContentfulProvider({
 }) {
   const [data, setData] = useState<any[]>([]);
   // console.log(serverData);
-  
+
   useEffect(() => {
     const storedData = localStorage.getItem("contentfulData");
     if (storedData) {
@@ -40,10 +40,10 @@ export function ContentfulProvider({
 
   const refreshData = async () => {
     const localData = localStorage.getItem("contentfulData");
-    if (!localData) {
-      const newData = await serverData;
-      localStorage.setItem("contentfulData", JSON.stringify(newData));
-    }
+    // if (!localData) {
+    const newData = await serverData;
+    localStorage.setItem("contentfulData", JSON.stringify(newData));
+    // }
   };
 
   useEffect(() => {
